@@ -5,7 +5,7 @@ export class NegociacaoController {
     private inputData: HTMLInputElement;
     private inputQuantidade: HTMLInputElement;
     private inputValor: HTMLInputElement;
-    private negociacoes = new Negociacoes();
+    private negociacoes : Negociacoes = new Negociacoes();
 
     constructor() {
         this.inputData = document.querySelector('#data');
@@ -13,14 +13,12 @@ export class NegociacaoController {
         this.inputValor = document.querySelector('#valor');
     }
 
-    adiciona(): void {
+    adiciona(): void{
         const negociacao = this.criaNegociacao();
-        negociacao.data.setDate(12);
         this.negociacoes.adiciona(negociacao);
         console.log(this.negociacoes.lista());
         this.limparFormulario();
     }
-
     criaNegociacao(): Negociacao {
         const exp = /-/g;
         const date = new Date(this.inputData.value.replace(exp, ','));
